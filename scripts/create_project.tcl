@@ -21,47 +21,47 @@ proc checkRequiredFiles { origin_dir} {
   set status true
   set files [list \
  "[file normalize "$origin_dir/src/rtl/example_tb.sv"]"\
- "[file normalize "$origin_dir/ddr4_0_ex.srcs/sources_1/ip/ATG_VIO/ATG_VIO.xci"]"\
- "[file normalize "$origin_dir/ddr4_0_ex.srcs/sources_1/ip/ATG_ILA/ATG_ILA.xci"]"\
- "[file normalize "$origin_dir/ddr4_0_ex.srcs/sources_1/ip/ddr4_0/ddr4_0.xci"]"\
- "[file normalize "$origin_dir/src/rtl/ddr4_v2_2_hw_tg.sv"]"\
- "[file normalize "$origin_dir/src/rtl/ddr4_v2_2_tg_2to1_converter.sv"]"\
- "[file normalize "$origin_dir/src/rtl/ddr4_v2_2_tg_addr_prbs.sv"]"\
- "[file normalize "$origin_dir/src/rtl/ddr4_v2_2_tg_arbiter.sv"]"\
- "[file normalize "$origin_dir/src/rtl/ddr4_v2_2_tg_data_prbs.sv"]"\
- "[file normalize "$origin_dir/src/rtl/ddr4_v2_2_tg_data_prbs_seed.sv"]"\
- "[file normalize "$origin_dir/src/rtl/ddr4_v2_2_tg_errchk.sv"]"\
- "[file normalize "$origin_dir/src/rtl/ddr4_v2_2_tg_fifo.sv"]"\
- "[file normalize "$origin_dir/src/rtl/ddr4_v2_2_tg_instr_bram.sv"]"\
- "[file normalize "$origin_dir/src/rtl/ddr4_v2_2_tg_mpfifo.sv"]"\
- "[file normalize "$origin_dir/src/rtl/ddr4_v2_2_tg_pattern_gen_addr.sv"]"\
- "[file normalize "$origin_dir/src/rtl/ddr4_v2_2_tg_pattern_gen_data.sv"]"\
- "[file normalize "$origin_dir/src/rtl/ddr4_v2_2_tg_pattern_gen_data_bram.sv"]"\
- "[file normalize "$origin_dir/src/rtl/ddr4_v2_2_tg_pattern_gen_data_cal_cplx.sv"]"\
- "[file normalize "$origin_dir/src/rtl/ddr4_v2_2_tg_prbs_gen.sv"]"\
- "[file normalize "$origin_dir/src/rtl/ddr4_v2_2_tg_top.sv"]"\
- "[file normalize "$origin_dir/src/rtl/ddr4_v2_2_tg_victim_data.sv"]"\
+ "[file normalize "$origin_dir/src/ip/ATG_VIO/ATG_VIO.xci"]"\
+ "[file normalize "$origin_dir/src/ip/ATG_ILA/ATG_ILA.xci"]"\
+ "[file normalize "$origin_dir/src/ip/ddr4_0/ddr4_0.xci"]"\
+ "[file normalize "$origin_dir/src/rtl/tg/ddr4_v2_2_hw_tg.sv"]"\
+ "[file normalize "$origin_dir/src/rtl/tg/ddr4_v2_2_tg_2to1_converter.sv"]"\
+ "[file normalize "$origin_dir/src/rtl/tg/ddr4_v2_2_tg_addr_prbs.sv"]"\
+ "[file normalize "$origin_dir/src/rtl/tg/ddr4_v2_2_tg_arbiter.sv"]"\
+ "[file normalize "$origin_dir/src/rtl/tg/ddr4_v2_2_tg_data_prbs.sv"]"\
+ "[file normalize "$origin_dir/src/rtl/tg/ddr4_v2_2_tg_data_prbs_seed.sv"]"\
+ "[file normalize "$origin_dir/src/rtl/tg/ddr4_v2_2_tg_errchk.sv"]"\
+ "[file normalize "$origin_dir/src/rtl/tg/ddr4_v2_2_tg_fifo.sv"]"\
+ "[file normalize "$origin_dir/src/rtl/tg/ddr4_v2_2_tg_instr_bram.sv"]"\
+ "[file normalize "$origin_dir/src/rtl/tg/ddr4_v2_2_tg_mpfifo.sv"]"\
+ "[file normalize "$origin_dir/src/rtl/tg/ddr4_v2_2_tg_pattern_gen_addr.sv"]"\
+ "[file normalize "$origin_dir/src/rtl/tg/ddr4_v2_2_tg_pattern_gen_data.sv"]"\
+ "[file normalize "$origin_dir/src/rtl/tg/ddr4_v2_2_tg_pattern_gen_data_bram.sv"]"\
+ "[file normalize "$origin_dir/src/rtl/tg/ddr4_v2_2_tg_pattern_gen_data_cal_cplx.sv"]"\
+ "[file normalize "$origin_dir/src/rtl/tg/ddr4_v2_2_tg_prbs_gen.sv"]"\
+ "[file normalize "$origin_dir/src/rtl/tg/ddr4_v2_2_tg_top.sv"]"\
+ "[file normalize "$origin_dir/src/rtl/tg/ddr4_v2_2_tg_victim_data.sv"]"\
  "[file normalize "$origin_dir/src/rtl/example_top.sv"]"\
- "[file normalize "$origin_dir/ddr4_0_ex.srcs/sources_1/ip/vio_leds/vio_leds.xci"]"\
- "[file normalize "$origin_dir/ddr4_0_ex.srcs/sources_1/ip/ila_ddrx/ila_ddrx.xci"]"\
- "[file normalize "$origin_dir/src/rtl/example_design.xdc"]"\
- "[file normalize "$origin_dir/src/rtl/glbl.v"]"\
- "[file normalize "$origin_dir/src/rtl/ddr4_v2_2_28_ddr4_stimulus_mem_x16.txt"]"\
- "[file normalize "$origin_dir/src/rtl/ddr4_v2_2_ddr4_traffic_generator.sv"]"\
- "[file normalize "$origin_dir/src/rtl/temp_mem.txt"]"\
- "[file normalize "$origin_dir/src/rtl/temp_second_mem.txt"]"\
- "[file normalize "$origin_dir/src/rtl/ddr4_0_microblaze_mcs_0.sv"]"\
- "[file normalize "$origin_dir/src/rtl/MemoryArray.sv"]"\
- "[file normalize "$origin_dir/src/rtl/arch_defines.v"]"\
- "[file normalize "$origin_dir/src/rtl/arch_package.sv"]"\
- "[file normalize "$origin_dir/src/rtl/ddr4_sdram_model_wrapper.sv"]"\
- "[file normalize "$origin_dir/src/rtl/proj_package.sv"]"\
- "[file normalize "$origin_dir/src/rtl/timing_tasks.sv"]"\
- "[file normalize "$origin_dir/src/rtl/StateTableCore.sv"]"\
- "[file normalize "$origin_dir/src/rtl/StateTable.sv"]"\
- "[file normalize "$origin_dir/src/rtl/ddr4_model.sv"]"\
- "[file normalize "$origin_dir/src/rtl/interface.sv"]"\
- "[file normalize "$origin_dir/src/rtl/sim_tb_top.sv"]"\
+ "[file normalize "$origin_dir/src/ip/vio_leds/vio_leds.xci"]"\
+ "[file normalize "$origin_dir/src/ip/ila_ddrx/ila_ddrx.xci"]"\
+ "[file normalize "$origin_dir/src/constraints/example_design.xdc"]"\
+ "[file normalize "$origin_dir/src/tb/glbl.v"]"\
+ "[file normalize "$origin_dir/src/tb/data/ddr4_v2_2_28_ddr4_stimulus_mem_x16.txt"]"\
+ "[file normalize "$origin_dir/src/tb/ddr4_v2_2_ddr4_traffic_generator.sv"]"\
+ "[file normalize "$origin_dir/src/tb/data/temp_mem.txt"]"\
+ "[file normalize "$origin_dir/src/tb/data/temp_second_mem.txt"]"\
+ "[file normalize "$origin_dir/src/tb/ddr4_0_microblaze_mcs_0.sv"]"\
+ "[file normalize "$origin_dir/src/tb/headers/MemoryArray.sv"]"\
+ "[file normalize "$origin_dir/src/tb/headers/arch_defines.v"]"\
+ "[file normalize "$origin_dir/src/tb/arch_package.sv"]"\
+ "[file normalize "$origin_dir/src/tb/ddr4_sdram_model_wrapper.sv"]"\
+ "[file normalize "$origin_dir/src/tb/proj_package.sv"]"\
+ "[file normalize "$origin_dir/src/tb/headers/timing_tasks.sv"]"\
+ "[file normalize "$origin_dir/src/tb/headers/StateTableCore.sv"]"\
+ "[file normalize "$origin_dir/src/tb/headers/StateTable.sv"]"\
+ "[file normalize "$origin_dir/src/tb/ddr4_model.sv"]"\
+ "[file normalize "$origin_dir/src/tb/interface.sv"]"\
+ "[file normalize "$origin_dir/src/tb/sim_tb_top.sv"]"\
   ]
   foreach ifile $files {
     if { ![file isfile $ifile] } {
@@ -140,7 +140,7 @@ if { $::argc > 0 } {
 set orig_proj_dir "[file normalize "$origin_dir/"]"
 
 # Check for paths and files needed for project creation
-set validate_required 0
+set validate_required 1
 if { $validate_required } {
   if { [checkRequiredFiles $origin_dir] } {
     puts "Tcl file $script_file is valid. All files required for project creation is accesable. "
