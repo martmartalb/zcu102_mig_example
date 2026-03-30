@@ -213,8 +213,8 @@ if {[llength $sv_files] > 0} {
     foreach f $sv_files {
         set file_obj [get_files -of_objects $obj [file normalize $f]]
         set_property -name "file_type" -value "SystemVerilog" -objects $file_obj
-        set_property -name "used_in" -value "synthesis implementation" -objects $file_obj
-        set_property -name "used_in_simulation" -value "0" -objects $file_obj
+        # set_property -name "used_in" -value "synthesis implementation" -objects $file_obj
+        # set_property -name "used_in_simulation" -value "0" -objects $file_obj
     }
 }
 
@@ -226,8 +226,8 @@ if {[llength $verilog_files] > 0} {
     foreach f $verilog_files {
         set file_obj [get_files -of_objects $obj [file normalize $f]]
         set_property -name "file_type" -value "Verilog" -objects $file_obj
-        set_property -name "used_in" -value "synthesis implementation" -objects $file_obj
-        set_property -name "used_in_simulation" -value "0" -objects $file_obj
+        # set_property -name "used_in" -value "synthesis implementation" -objects $file_obj
+        # set_property -name "used_in_simulation" -value "0" -objects $file_obj
     }
 }
 
@@ -239,8 +239,8 @@ if {[llength $vhdl_files] > 0} {
     foreach f $vhdl_files {
         set file_obj [get_files -of_objects $obj [file normalize $f]]
         set_property -name "file_type" -value "VHDL" -objects $file_obj
-        set_property -name "used_in" -value "synthesis implementation" -objects $file_obj
-        set_property -name "used_in_simulation" -value "0" -objects $file_obj
+        # set_property -name "used_in" -value "synthesis implementation" -objects $file_obj
+        # set_property -name "used_in_simulation" -value "0" -objects $file_obj
     }
 }
 
@@ -281,6 +281,49 @@ if {[llength $constraint_files] > 0} {
 if {[string equal [get_filesets -quiet sim_1] ""]} {
   create_fileset -simset sim_1
 }
+
+# Add all .sv files from src/tb/ with properties
+set obj [get_filesets sim_1]
+set sv_files [findFiles "${origin_dir}/src/tb" "*.sv"]
+if {[llength $sv_files] > 0} {
+    add_files -norecurse -fileset $obj $sv_files
+    foreach f $sv_files {
+        set file_obj [get_files -of_objects $obj [file normalize $f]]
+        if {[string match "*header*" $f]} {
+            set_property -name "file_type" -value "Verilog Header" -objects $file_obj
+        } else {
+            set_property -name "file_type" -value "SystemVerilog" -objects $file_obj
+        }
+        set_property -name "used_in" -value "implementation simulation" -objects $file_obj
+        set_property -name "used_in_synthesis" -value "0" -objects $file_obj
+    }
+}
+
+# Add all .v files from src/tb/ with properties
+set obj [get_filesets sim_1]
+set verilog_files [findFiles "${origin_dir}/src/tb" "*.v"]
+if {[llength $verilog_files] > 0} {
+    add_files -norecurse -fileset $obj $verilog_files
+    foreach f $verilog_files {
+        set file_obj [get_files -of_objects $obj [file normalize $f]]
+        if {[string match "*header*" $f]} {
+            set_property -name "file_type" -value "Verilog Header" -objects $file_obj
+        } else {
+            set_property -name "file_type" -value "Verilog" -objects $file_obj
+        }
+        set_property -name "used_in" -value "implementation simulation" -objects $file_obj
+        set_property -name "used_in_synthesis" -value "0" -objects $file_obj
+    }
+}
+
+
+# Add all .txt files from src/tb/ with properties
+set obj [get_filesets sim_1]
+set text_files [findFiles "${origin_dir}/src/tb" "*.txt"]
+if {[llength $text_files] > 0} {
+    add_files -norecurse -fileset $obj $text_files
+}
+
 
 # ==============================================================================
 # Set 'utils_1' fileset object
